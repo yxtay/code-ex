@@ -11,3 +11,7 @@ install-requirements:
 .PHONY: sync-requirements
 sync-requirements:
 	pip-sync requirements/main.txt requirements/dev.txt
+
+.PHONY: pytest
+pytest:
+	pytest -v -p no:warnings
