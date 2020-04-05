@@ -1,6 +1,6 @@
 import pytest
 
-from src.sort import bubble_sort, insertion_sort, merge_sort, selection_sort, shell_sort
+from src.sort import bubble_sort, insertion_sort, merge_sort, quick_sort, selection_sort, shell_sort
 
 cases = [
     ([23, 1, 45, 34, 7], [1, 7, 23, 34, 45]),
@@ -38,4 +38,10 @@ def test_selection_sort(arr, expected):
 @pytest.mark.parametrize("arr, expected", cases)
 def test_shell_sort(arr, expected):
     shell_sort(arr)
+    assert arr == expected
+
+
+@pytest.mark.parametrize("arr, expected", cases)
+def test_quick_sort(arr, expected):
+    quick_sort(arr)
     assert arr == expected
