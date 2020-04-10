@@ -1,3 +1,14 @@
+MAKEFLAGS += --warn-undefined-variables
+MAKEFLAGS += --no-builtin-rules
+SHELL := bash
+.ONESHELL:
+.SHELLFLAGS := -eu -o pipefail -c
+.DEFAULT_GOAL := all
+.DELETE_ON_ERROR:
+.SUFFIXES:
+
+TESTS = .
+
 .PHONY: update-requirements
 update-requirements:
 	pip install --upgrade pip setuptools pip-tools
@@ -14,4 +25,4 @@ sync-requirements:
 
 .PHONY: pytest
 pytest:
-	pytest -v -p no:warnings
+	pytest -v -p no:warnings $(TESTS)
