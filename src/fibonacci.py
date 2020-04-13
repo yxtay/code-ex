@@ -33,5 +33,11 @@ def memoize(func):
     return memoized_func
 
 
-fibonacci_mem = memoize(fibonacci)
-fibonacci_cache = functools.lru_cache(maxsize=128)(fibonacci)
+@memoize
+def fibonacci_mem(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci_mem(n - 1) + fibonacci_mem(n - 2)
