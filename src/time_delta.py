@@ -13,8 +13,8 @@ def time_delta(t1, t2):
     return abs(timedelta.total_seconds())
 
 
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+if __name__ == "__main__":
+    fptr = open(os.environ["OUTPUT_PATH"], "w")
 
     t = int(input())
 
@@ -25,6 +25,6 @@ if __name__ == '__main__':
 
         delta = time_delta(t1, t2)
 
-        fptr.write(delta + '\n')
+        fptr.write(delta + "\n")
 
     fptr.close()

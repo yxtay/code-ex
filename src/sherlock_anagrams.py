@@ -21,7 +21,7 @@ def generate_substrings(s):
 
 def generate_substrings_l(s, l):
     for i in range(len(s) - l + 1):
-        yield s[i:i + l]
+        yield s[i : i + l]
 
 
 def is_anagram(s1, s2):

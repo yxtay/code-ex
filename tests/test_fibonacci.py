@@ -1,6 +1,6 @@
 import pytest
 
-from src.fibonacci import fibonacci, fibonacci_cache, fibonacci_lru, fibonacci_mem
+from src.fibonacci import fibonacci, fibonacci_lru, fibonacci_mem
 
 cases = [
     (0, 0),
@@ -23,12 +23,6 @@ def test_fibonacci(n, expected):
 @pytest.mark.parametrize("n, expected", cases)
 def test_fibonacci_mem(n, expected):
     result = fibonacci_mem(n)
-    assert result == expected
-
-
-@pytest.mark.parametrize("n, expected", cases)
-def test_fibonacci_cache(n, expected):
-    result = fibonacci_cache(n)
     assert result == expected
 
 

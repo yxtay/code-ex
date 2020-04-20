@@ -6,7 +6,7 @@ def minimum_bribes(q):
         if p - i > 2:
             return None
 
-        for j in range(max(p-1, 0), i):
+        for j in range(max(p - 1, 0), i):
             if q[j] > p:
                 bribes += 1
 

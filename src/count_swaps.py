@@ -26,4 +26,3 @@ def count_swaps(arr):
     print(f"First Element: {arr[0]}")
     print(f"Last Element: {arr[-1]}")
     return count, arr[0], arr[-1]
-

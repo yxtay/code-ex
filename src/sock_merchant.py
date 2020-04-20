@@ -16,8 +16,8 @@ def sockMerchant(n, ar):
     return pairs
 
 
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+if __name__ == "__main__":
+    fptr = open(os.environ["OUTPUT_PATH"], "w")
 
     n = int(input())
 
@@ -25,6 +25,6 @@ if __name__ == '__main__':
 
     result = sockMerchant(n, ar)
 
-    fptr.write(str(result) + '\n')
+    fptr.write(str(result) + "\n")
 
     fptr.close()

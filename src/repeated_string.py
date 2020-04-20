@@ -20,8 +20,8 @@ def repeatedString(s, n):
     return count
 
 
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+if __name__ == "__main__":
+    fptr = open(os.environ["OUTPUT_PATH"], "w")
 
     s = input()
 
@@ -29,6 +29,6 @@ if __name__ == '__main__':
 
     result = repeatedString(s, n)
 
-    fptr.write(str(result) + '\n')
+    fptr.write(str(result) + "\n")
 
     fptr.close()
