@@ -3,8 +3,8 @@ import pytest
 from src.two_strings import two_strings
 
 cases = [
-    ("hello", "world", "Yes"),
-    ("hi", "world", "No"),
+    ("hello", "world", "YES"),
+    ("hi", "world", "NO"),
 ]
 
 

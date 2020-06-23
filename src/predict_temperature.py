@@ -12,7 +12,9 @@ def predictTemperature(startDate, endDate, temperature, n):
     dt_index = pd.date_range(start_date, periods=periods, freq="H")
 
     temp_series = pd.Series(temperature, index=dt_index)
-    mod = ExponentialSmoothing(temp_series, trend="add", damped=True, seasonal="add", seasonal_periods=24)
+    mod = ExponentialSmoothing(
+        temp_series, trend="add", damped=True, seasonal="add", seasonal_periods=24
+    )
     results = mod.fit()
 
     return results.forecast(n * 24)
@@ -69,7 +71,7 @@ temperature = [
     26.94,
     25.47,
     23.84,
-    22.55
+    22.55,
 ]
 
 print(predictTemperature(start_date, end_date, temperature, n))
