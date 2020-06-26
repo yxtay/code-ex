@@ -15,23 +15,16 @@ help:  ## print help message
 
 ## dependencies
 
-.PHONY: deps-update
-deps-update:
-	pip install --upgrade pip pip-tools
-	pip-compile --upgrade --output-file requirements/main.txt requirements/main.in
-	pip-compile --upgrade --output-file requirements/dev.txt requirements/dev.in
-
-.PHONY: deps-sync
-deps-sync:
-	pip-sync requirements/main.txt requirements/dev.txt
-
-.PHONY: deps-update-sync
-deps-update-sync: deps-update deps-sync
-
 .PHONY: deps-install
 deps-install:  ## install dependencies
-	pip install --upgrade pip
-	pip install -r requirements/main.txt -r requirements/dev.txt
+	pip install poetry
+	poetry install --no-root
+
+poetry.lock: pyproject.toml
+	poetry update
+
+requirements.txt: poetry.lock
+	poetry export --format requirements.txt --output requirements.txt --without-hashes
 
 ## checks
 
