@@ -14,14 +14,14 @@ def generate_sorted_substrings(s):
 
 
 def generate_substrings(s):
-    for l in range(1, len(s) + 1):
-        for substr in generate_substrings_l(s, l):
+    for length in range(1, len(s) + 1):
+        for substr in generate_substrings_l(s, length):
             yield substr
 
 
-def generate_substrings_l(s, l):
-    for i in range(len(s) - l + 1):
-        yield s[i : i + l]
+def generate_substrings_l(s, length):
+    for i in range(len(s) - length + 1):
+        yield s[i : i + length]
 
 
 def is_anagram(s1, s2):
