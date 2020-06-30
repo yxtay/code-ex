@@ -20,7 +20,9 @@ deps-install:  ## install dependencies
 	pip install poetry
 	poetry install --no-root
 
-poetry.lock: pyproject.toml
+.PHONY: deps-update
+deps-update:
+	pip install poetry
 	poetry update
 
 requirements.txt: poetry.lock
