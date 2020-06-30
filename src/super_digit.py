@@ -6,4 +6,3 @@ def super_digit(n, k=1):
             return super_digit(str(int(n) * k))
     else:
         return super_digit(str(sum(int(digit) for digit in n)), k)
-
