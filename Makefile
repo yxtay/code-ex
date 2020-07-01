@@ -32,13 +32,14 @@ requirements.txt: poetry.lock
 
 .PHONY: format
 format:
+	isort --apply
 	black $(SOURCE_DIR) $(TEST_DIR)
 
 .PHONY: lint
 lint:
+	isort --check-only
 	black $(SOURCE_DIR) $(TEST_DIR) --diff
-#	isort --check-only
-#	flake8 $(SOURCE_DIR) $(TEST_DIR)
+	flake8 $(SOURCE_DIR) $(TEST_DIR)
 #	mypy $(SOURCE_DIR)
 
 .PHONY: test
