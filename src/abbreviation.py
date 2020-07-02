@@ -35,14 +35,14 @@ def abbreviation_dp(a, b):
     for row in range(1, n + 1):
         for col in range(1, m + 1):
             if dp[row - 1][col - 1] and a[col - 1].upper() == b[row - 1]:
-                # a_ch and b_ch match
-                # previous sub problem is row - 1, col - 1
+                # a_ch and b_ch match, remove both
+                # sub problem: row - 1, col - 1
                 dp[row][col] = True
                 continue
 
             if dp[row][col - 1] and a[col - 1].islower():
                 # a_ch is lower case, can be dropped
-                # previous sub problem: col - 1
+                # sub problem: row, col - 1
                 dp[row][col] = True
             # else cell remain false, no action required
     return dp[n][m]
