@@ -1,29 +1,23 @@
 def count_countries(matrix):
-    directions = [(1, 0), (0, 1), (-1, 0), (0, -1)]
+    if len(matrix) == 0:
+        return 0
 
-    def explore(row, col):
-        queue = [(row, col)]
-        explored = set(queue)
-        while queue:
-            row, col = queue.pop()
+    r, c = len(matrix), len(matrix[0])
+    visited = [[False] * c for _ in range(r)]
 
-            try:
-                if matrix[row][col] == "1":
-                    for dr, dc in directions:
-                        coordinates = row + dr, col + dc
-                        if coordinates not in explored:
-                            explored.add(coordinates)
-                            queue.append(coordinates)
-            except IndexError:
-                pass
-        return explored
+    def dfs(i, j):
+        if i < 0 or i >= r or j < 0 or j >= c or matrix[i][j] != "1" or visited[i][j]:
+            return
+        visited[i][j] = True
+        dfs(i + 1, j)
+        dfs(i - 1, j)
+        dfs(i, j + 1)
+        dfs(i, j - 1)
 
     count = 0
-    explored = set()
-    for i, row in enumerate(matrix):
-        for j, value in enumerate(row):
-            if (i, j) not in explored and value == "1":
+    for i in range(r):
+        for j in range(c):
+            if matrix[i][j] == "1" and not visited[i][j]:
                 count += 1
-                explored = explored.union(explore(i, j))
-
+                dfs(i, j)
     return count
